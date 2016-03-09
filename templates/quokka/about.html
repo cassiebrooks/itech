@@ -1,16 +1,9 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load staticfiles %}
-<html>
+{% block title %}About{% endblock %}
 
-    <head>
-        <title>About Quokka</title>
-    </head>
-
-    <body>
-        <h1>Quokka says...</h1>
-        tell me more about <strong>{{ boldmessage }}</strong><br />
-        <a href="/quokka/">Home</a><br />
-        <img src="{% static "images/quiz.jpg" %}" alt="" />
-    </body>
-
-</html>
+{% block body_block %}
+<h1>Quokka tells you about itself!</h1>
+<a href="/quokka/">Home</a><br />
+<img src="{% static "images/quiz.jpg" %}" alt="" />
+{% endblock body_block %}

@@ -1,27 +1,23 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Add an answer | Quokka</title>
-    </head>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}About{% endblock %}
 
-    <body>
-        <h1>Add an answer</h1>
+{% block body_block %}
+<h1>Add an answer</h1>
 
-        <form id="answer_form" method="post" action="/quokka/add_answer/">
+<form id="answer_form" method="post" action="/quokka/add_answer/">
 
-            {% csrf_token %}
-            {% for hidden in form.hidden_fields %}
-                {{ hidden }}
-            {% endfor %}
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
 
-            {% for field in form.visible_fields %}
-                {{ field.errors }}
-                {{ field.help_text }}
-                {{ field }}
-            {% endfor %}
+    {% for field in form.visible_fields %}
+        {{ field.errors }}
+        {{ field.help_text }}
+        {{ field }}
+    {% endfor %}
 
-            <input type="submit" name="submit" value="Create Answer" />
-        </form>
-    </body>
-
-</html>
+    <input type="submit" name="submit" value="Create Answer" />
+</form>
+{% endblock body_block %}

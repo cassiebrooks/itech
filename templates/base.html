@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>{% block title %}Quokka{% endblock %} | Quokka</title>
+    </head>
+
+    <body>
+
+    	<div>
+    	    <ul>
+    	    {% if user.is_authenticated %}
+    	        <li><a href="{% url 'add_answer' %}">Add an answer</a></li>
+    	        <li><a href="{% url 'logout' %}">Logout</a></li>
+    	    {% else %}
+    	        <li><a href="{% url 'register' %}">Register</a></li>
+    	        <li><a href="{% url 'login' %}">Login</a></li>
+    	    {% endif %}
+
+    	        <li><a href="{% url 'about' %}">About</a></li>
+    	    </ul>
+    	</div>
+
+        <div>
+            {% block body_block %}{% endblock %}
+        </div>
+
+        <hr />
+
+    </body>
+</html>

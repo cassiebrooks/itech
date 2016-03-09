@@ -16,6 +16,7 @@ def about(request):
     context_dict = {'boldmessage': "YAY QUOKKA"}
     return render(request, 'quokka/about.html', context_dict)
 
+@login_required
 def add_answer(request):
     if request.method == 'POST':
         form = AnswerForm(request.POST)
