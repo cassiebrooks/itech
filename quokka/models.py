@@ -20,7 +20,7 @@ class Answer(models.Model):
 	question = models.ForeignKey(Question, on_delete=models.CASCADE)
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
 	def __unicode__(self):
-		return unicode(self.id)
+		return unicode(self.text)
 
 class Vote(models.Model):
 	answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
