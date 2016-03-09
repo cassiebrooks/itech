@@ -3,22 +3,16 @@
 {% block title %}About{% endblock %}
 
 {% block body_block %}
-{% if user.is_authenticated %}
-    <h1>Hello {{ user.username }}!</h1>
-{% else %}
-    <h1>Hello world!</h1>
-{% endif %}
 
-<hr>
 {% if questions %}
- 	<ul>
+ 	<ul class="questions">
  		{% for question in questions %}
- 		<li>
+ 		<li class="question">
  			<h3>{{ question.text }}</h3>
- 			<ul>
+ 			<ul class="answers">
  				{% for answer in answers %}
  					{% ifequal answer.question|slugify question.id|slugify %}
-	 					<li>{{ answer.text }}</li>
+	 					<li class="answer">{{ answer.text }}</li>
  					{% endifequal %}
  				{% endfor %}
  			</ul>

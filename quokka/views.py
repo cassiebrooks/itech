@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from datetime import datetime
 from quokka.models import Question, Answer, Votes, Set
-from quokka.forms import AnswerForm, UserForm, UserProfileForm
+from quokka.forms import AnswerForm
 
 def index(request):
     question_list = Question.objects.all()
