@@ -6,5 +6,8 @@ Quokka is a social app for answering thought-provoking questions and reading oth
 Usage
 -----
 
+* `git clone git@github.com:cassiebrooks/itech.git`
+* `cd itech/tango_with_django_project/`
 * Run `pip install django-registration-redux`
+* Run `python populate_quokka.py` for a bit of pre-populated data
 * Run using `python manage.py runserver`
