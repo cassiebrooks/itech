@@ -12,7 +12,10 @@
     	    	<li><a href="{% url 'index' %}">Home</a></li>
     	    {% if user.is_authenticated %}
     	        <li><a href="{% url 'add_answer' %}">Add an answer</a></li>
+                 <li><a href="{% url 'auth_logout' %}?next=/quokka/">Logout</a></li>
     	    {% else %}
+                <li><a href="{% url 'registration_register' %}">Register</a></li>
+                <li><a href="{% url 'auth_login' %}">Login</a></li>
     	    {% endif %}
     	        <li><a href="{% url 'about' %}">About</a></li>
     	    </ul>
