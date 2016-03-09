@@ -1,0 +1,45 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	color: #323232;
+}
+
+nav ul {
+	list-style-type: none;
+	padding-left: 0;
+	display: flex;
+	justify-content: space-between;
+	margin: 0;
+}
+
+.wrapper {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+nav {
+	background-color: #f57c00;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.17);
+}
+
+nav a {
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 30px;
+	display: block;
+}
+
+nav a:visited {
+	color: white;
+}
+
+nav a:hover {
+	background-color: #ff9800;
+	color: #fff3e0;
+}
