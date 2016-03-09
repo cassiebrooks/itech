@@ -12,7 +12,15 @@
  			<ul class="answers">
  				{% for answer in answers %}
  					{% ifequal answer.question|slugify question.id|slugify %}
-	 					<li class="answer">{{ answer.text }}</li>
+	 					<li class="answer">
+	 						<div class="votes">
+	 							<div class="up"><i class="fa fa-chevron-up"></i></div>
+	 							<div class="down"><i class="fa fa-chevron-down"></i></div>
+	 						</div>
+	 						<div class="text">
+	 							{{ answer.text }}
+	 						</div>
+	 					</li>
  					{% endifequal %}
  				{% endfor %}
  			</ul>
