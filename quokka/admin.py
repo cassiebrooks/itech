@@ -1,3 +1,7 @@
 from django.contrib import admin
+from quokka.models import Question, Set, Answer, Votes
 
-# Register your models here.
+admin.site.register(Question)
+admin.site.register(Set)
+admin.site.register(Answer)
+admin.site.register(Votes)
