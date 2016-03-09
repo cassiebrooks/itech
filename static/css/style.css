@@ -120,13 +120,13 @@ li.answer {
 	color: #ef5350;
 }
 
-.answer .votes .up:hover,
-.answer .votes .down:hover {
+.votes #up:hover,
+.votes #down:hover {
 	transition: color 0.5s ease;
 }
 
-.answer .votes .up:hover,
-.answer .votes .down:hover {
+.votes #up:hover,
+.votes #down:hover {
 	color: #ffcdd2;
 }
 
