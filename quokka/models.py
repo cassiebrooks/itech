@@ -25,4 +25,4 @@ class Answer(models.Model):
 class Vote(models.Model):
 	answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
 	voter = models.ForeignKey(User, on_delete=models.CASCADE)
-	score = models.IntegerField()
+	score = models.IntegerField() # should be 1 or -1, depending on whether it's a vote up or down
