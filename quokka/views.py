@@ -6,4 +6,5 @@ def index(request):
     return render(request, 'quokka/index.html', context_dict)
 
 def about(request):
-    return HttpResponse("Quokka tells you about itself!")
+    context_dict = {'boldmessage': "YAY QUOKKA"}
+    return render(request, 'quokka/about.html', context_dict)

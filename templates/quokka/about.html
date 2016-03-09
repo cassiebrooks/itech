@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+
+    <head>
+        <title>About Quokka</title>
+    </head>
+
+    <body>
+        <h1>Quokka says...</h1>
+        tell me more about <strong>{{ boldmessage }}</strong><br />
+        <a href="/quokka/">Home</a><br />
+        <img src="{% static "images/quiz.jpg" %}" alt="" />
+    </body>
+
+</html>
