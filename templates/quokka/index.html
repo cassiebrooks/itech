@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
 
     <head>
@@ -9,6 +10,7 @@
         <h1>Quokka says...</h1>
         hello world! <strong>{{ boldmessage }}</strong><br />
         <a href="/quokka/about/">About</a><br />
+        <img src="{% static "images/quiz.jpg" %}" alt="" />
     </body>
 
 </html>
