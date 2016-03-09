@@ -38,19 +38,19 @@ nav {
 }
 
 nav a {
-	color: white;
+	color: #ffa726;
 	text-decoration: none;
 	text-transform: uppercase;
 	padding: 20px;
 	display: block;
+	transition: color 0.5s ease;
 }
 
 nav a:visited {
-	color: white;
+	color: #ffa726;
 }
 
 nav a:hover {
-	background-color: #ff9800;
 	color: #fff3e0;
 }
 
@@ -71,7 +71,7 @@ ul.questions {
 	display: flex;
 	margin: 0 -10px;
 	overflow-y: auto;
-	background-color: #fff3e0
+	background-color: #ff9800
 }
 
 .questions > div {
@@ -87,7 +87,7 @@ li.question {
 	padding: 10px 20px;
 	margin: 0 10px;
     border-radius: 5px;
-    background-color: white;
+    background-color: #eeeeee;
     border: 1px solid #f2f2f2;
 }
 
@@ -107,7 +107,6 @@ li.answer {
 	padding: 10px;
 	border-radius: 5px;
 	background-color: #FFFCF5;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.17);
 	display: flex;
 }
 
@@ -119,6 +118,11 @@ li.answer {
 	flex: 1;
 	font-family: 'FontAwesome';
 	color: #ef5350;
+}
+
+.answer .votes .up:hover,
+.answer .votes .down:hover {
+	transition: color 0.5s ease;
 }
 
 .answer .votes .up:hover,
