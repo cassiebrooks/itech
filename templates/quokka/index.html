@@ -7,13 +7,20 @@
     </head>
 
     <body>
-        <h1>Quokka says...</h1>
-        hello world! <strong>{{ boldmessage }}</strong><br />
+
+        {% if user.is_authenticated %}
+        <h1>Hello {{ user.username }}!</h1>
+        {% else %}
+        <h1>Hello world!</h1>
+        {% endif %}
+
         <a href="/quokka/about/">About</a><br />
         <img src="{% static "images/quiz.jpg" %}" alt="" />
 
         <hr>
 
+        <a href="/quokka/register/">Register Here</a>
+        <a href="/rango/login/">Login</a>
         <a href="/quokka/add_answer/">Add a New Answer</a><br />
 
         <hr>
