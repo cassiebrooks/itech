@@ -17,21 +17,31 @@ nav ul {
 	margin: 0;
 }
 
+.nav-wrapper {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
 .wrapper {
 	max-width: 1200px;
 	margin: 0 auto;
+	padding-top: 80px;	/* means content starts 20px below nav */
 }
 
 nav {
 	background-color: #f57c00;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.17);
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+	height: 60px;
 }
 
 nav a {
 	color: white;
 	text-decoration: none;
 	text-transform: uppercase;
-	padding: 30px;
+	padding: 20px;
 	display: block;
 }
 
@@ -44,10 +54,13 @@ nav a:hover {
 	color: #fff3e0;
 }
 
+h1 {
+	margin-top: 0;
+}
+
 ul.questions {
 	list-style-type: none;
 	border: 1px solid blue;
-	width: calc(100% + 20px);
 	height: 100%;
 	position: absolute;
 	top: 0;
@@ -57,6 +70,7 @@ ul.questions {
 	padding: 80px 20px 20px 20px; /* 20px more than header height */
 	display: flex;
 	margin: 0 -10px;
+	overflow-y: auto;
 }
 
 .questions > div {
@@ -85,6 +99,30 @@ li.answer {
 	padding: 10px;
 	border-radius: 5px;
 }
+
+.box {
+	max-width: 500px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 30px;
+	border-radius: 5px;
+	background-color: #eaeaea;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.17);
+}
+
+.box input {
+	padding: 5px;
+	border: none;
+	border-radius: 2px;
+}
+
+.box input[type=submit] {
+	color: white;
+	text-transform: uppercase;
+	padding: 10px 30px;
+	font-weight: bold;
+}
+
 
 
 
