@@ -4,7 +4,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tango_with_django_project.setti
 import django
 django.setup()
 
-from quokka.models import Set, Question, Answer, Votes#, User
+from quokka.models import Set, Question, Answer, Vote
 
 
 def populate():

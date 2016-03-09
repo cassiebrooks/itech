@@ -1,9 +1,10 @@
 from django import forms
 from django.contrib.auth.models import User
-from quokka.models import Question, Answer, Votes, Set
+from quokka.models import Question, Answer, Vote, Set
 
 
 class AnswerForm(forms.ModelForm):
+
     question = forms.ModelChoiceField(queryset=Question.objects.all())
     text = forms.CharField(max_length=512)
 

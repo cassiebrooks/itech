@@ -12,17 +12,17 @@ class Question(models.Model):
 	id = models.AutoField(primary_key=True)
 	text = models.CharField(max_length=512)
 	def __unicode__(self):
-		return unicode(self.id)
+		return unicode(self.text)
 
 class Answer(models.Model):
 	id = models.AutoField(primary_key=True)
 	text = models.CharField(max_length=1024)
 	question = models.ForeignKey(Question, on_delete=models.CASCADE)
-	#author = models.ForeignKey(User, on_delete=models.CASCADE)
+	author = models.ForeignKey(User, on_delete=models.CASCADE)
 	def __unicode__(self):
 		return unicode(self.id)
 
-class Votes(models.Model):
+class Vote(models.Model):
 	answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
-	#voter = models.ForeignKey(User, on_delete=models.CASCADE)
+	voter = models.ForeignKey(User, on_delete=models.CASCADE)
 	score = models.IntegerField()
