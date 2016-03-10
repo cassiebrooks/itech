@@ -16,7 +16,7 @@
 	 					<li class="answer" id="a-{{ answer.id }}">
 	 						<div class="votes">
 	 							{% if user.is_authenticated %}<div class="up" data-aid="{{answer.id}}"><i class="fa fa-chevron-up"></i></div>{% endif %}
-	 							<div id="score">
+	 							<div class="score">
 	 								{% get_vote_count answer.id votes %}
 	 							</div>
 	 							{% if user.is_authenticated %}<div class="down" data-aid="{{answer.id}}"><i class="fa fa-chevron-down"></i></div>{% endif %}
