@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% block title %}About{% endblock %}
+{% load quokka_extras %}
+{% block title %}Questions &amp; answers!{% endblock %}
 
 {% block body_block %}
 
@@ -14,9 +15,11 @@
  					{% ifequal answer.question.id|slugify question.id|slugify %}
 	 					<li class="answer" id="a-{{ answer.id }}">
 	 						<div class="votes">
-	 							{% if user.is_authenticated %}<div id="up"><i class="fa fa-chevron-up"></i></div>{% endif %}
-	 							<div class="score"> x </div>
-	 							{% if user.is_authenticated %}<div id="down"><i class="fa fa-chevron-down"></i></div>{% endif %}
+	 							{% if user.is_authenticated %}<div class="up" data-aid="{{answer.id}}"><i class="fa fa-chevron-up"></i></div>{% endif %}
+	 							<div id="score">
+	 								{% get_vote_count answer.id votes %}
+	 							</div>
+	 							{% if user.is_authenticated %}<div class="down" data-aid="{{answer.id}}"><i class="fa fa-chevron-down"></i></div>{% endif %}
 	 						</div>
 	 						<div class="text">
 	 							{{ answer.text }}
@@ -32,4 +35,7 @@
  {% else %}
  	<p>There are no questions available.</p>
  {% endif %}
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <script src="{% static "js/quokka-ajax.js" %}"></script>
 {% endblock body_block %}

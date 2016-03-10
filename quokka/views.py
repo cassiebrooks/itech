@@ -11,7 +11,7 @@ def index(request):
     question_list = Question.objects.all()
     answer_list = Answer.objects.all()
     vote_list = Vote.objects.all()
-    context_dict = {'questions': question_list, 'answers': answer_list, 'vote': vote_list}
+    context_dict = {'questions': question_list, 'answers': answer_list, 'votes': vote_list}
     response = render(request, 'quokka/index.html', context_dict)
 
     # Cookies
@@ -58,5 +58,22 @@ def add_answer(request):
         form = AnswerForm()
     return render(request, 'quokka/add_answer.html', {'form': form})
 
+@login_required
+def vote_on_answer(request):
+    aid = None
+    score = None
+    if request.method == 'GET':
+        aid = request.GET['answer_id']
+        score = request.GET['score']
+
+    if aid:
+        a = Answer.objects.filter(id=int(aid)).first()
+        if a:
+            vote = Vote()
+            vote.voter = request.user
+            vote.answer = a
+            vote.score = score
+            vote.save()
+    return HttpResponse(vote.score)
 
 
