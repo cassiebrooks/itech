@@ -202,6 +202,18 @@ li.answer {
 
 .answer input {
 	display: none;
+	background: linear-gradient(to bottom,#61bd4f 0,#5aac44 100%);
+	box-shadow: 0 1px 0 #3f6f21;
+	color: #fff;
+	outline: none;
+	border: none;
+	border-radius: 3px;
+	padding: 5px 8px;
+	float: right;
+	margin: 4px 0;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 
