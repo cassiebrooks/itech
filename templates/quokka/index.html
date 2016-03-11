@@ -16,7 +16,26 @@
  			<h3>{{ question.text }}</h3>
  			<ul class="answers">
  				<script type="text/javascript" id="user_has_answered-{{ question.id }}">
+ 					
+ 					// makes textarea increase in size automatically when text inside it gets too big
  					$(".answer textarea").autogrow();
+ 					
+ 					// make answer submit button appear and disappear on textarea focus
+ 					$( ".answer textarea" ).focusin(function() {
+ 						$(this).parent().find("input[type=submit]").css("display", "inline-block");
+ 					});
+ 					$( ".answer textarea" ).focusout(function() {
+ 						$(this).parent().find("input[type=submit]").css("display", "none");
+ 					});
+
+
+
+ 					if ($('.answer textarea').is( ":focus" )) {
+ 						console.log("in focus.");
+ 						$('.answer input[type=submit]').css('display', 'block');
+ 					}
+
+
  					if ({% user_has_answered question user answers %}) {
  						// need to highlight user's answer...
  						// and hide votes
@@ -24,7 +43,11 @@
  					else {
  						$('#user_has_answered-{{ question.id }}').after(
  							"<li class='answer form'>" +
- 								"<form><textarea rows='2' placeholder=\"What's your answer?\"></textarea></form>" +
+ 								"<form action='' method='POST'>" +
+ 								"{% csrf_token %}" +
+ 								"<textarea rows='2' placeholder=\"What's your answer?\"></textarea>" +
+ 								"<input type='submit' />" +
+ 								"</form>" +
  							"</li>")
  					}
 				</script>

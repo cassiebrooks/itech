@@ -200,6 +200,9 @@ li.answer {
 	color: #eaeaea;
 }
 
+.answer input {
+	display: none;
+}
 
 
 
