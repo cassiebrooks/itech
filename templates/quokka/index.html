@@ -5,9 +5,8 @@
 
 {% block body_block %}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="{% static "js/quokka-ajax.js" %}"></script>
-<script src="{% static "js/autogrow.min.js" %}"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static "js/autogrow.min.js" %}"></script>
 
 {% if questions %}
  	<ul class="questions">
@@ -16,8 +15,6 @@
  			<h3>{{ question.text }}</h3>
  			<ul class="answers">
  				<script type="text/javascript" id="user_has_answered-{{ question.id }}">
- 					
- 					// makes textarea increase in size automatically when text inside it gets too big
  					$(".answer textarea").autogrow();
  					
  					// make answer submit button appear and disappear on textarea focus
@@ -29,18 +26,7 @@
  					});
 
 
-
- 					if ($('.answer textarea').is( ":focus" )) {
- 						console.log("in focus.");
- 						$('.answer input[type=submit]').css('display', 'block');
- 					}
-
-
- 					if ({% user_has_answered question user answers %}) {
- 						// need to highlight user's answer...
- 						// and hide votes
- 					}
- 					else {
+ 					if (!{% user_has_answered question user answers %}) {
  						$('#user_has_answered-{{ question.id }}').after(
  							"<li class='answer form'>" +
  								"<form action='' method='POST'>" +
@@ -50,7 +36,23 @@
  								"</form>" +
  							"</li>")
  					}
-				</script>
+ 					else {
+ 						var a = {% user_has_answered question user answers %};
+ 						console.log(a);
+ 						var b = '#a-' + parseInt(a);
+ 						console.log(b);
+
+ 						// should get <li class="answer" id="a-x"> where x is answer.id
+ 						// which is returned from user_has_answered simple_tag
+ 						console.log($(b));
+
+ 						// test to make sure 
+ 						console.log($('#a-6'));
+
+ 						// what I want to do with the <li> once I've got hold it it:
+ 						$('#a-6').addClass('highlight-answer');
+ 					}
+ 				</script>
 
  				{% for answer in answers %}
  					{% ifequal answer.question.id|slugify question.id|slugify %}
@@ -63,7 +65,7 @@
 	 							{% if user.is_authenticated %}<div class="down" data-aid="{{answer.id}}"><i class="fa fa-chevron-down"></i></div>{% endif %}
 	 						</div>
 	 						<div class="text">
-	 							{{ answer.text }}
+	 							<span>{{ answer.text }}</span>
 	 							<p class="username">{{ answer.author.username }}</p>
 	 						</div>
 	 					</li>
@@ -77,4 +79,5 @@
  	<p>There are no questions available.</p>
 {% endif %}
 
+<script src="{% static "js/quokka-ajax.js" %}"></script>
 {% endblock body_block %}

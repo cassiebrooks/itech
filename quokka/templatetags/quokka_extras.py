@@ -22,7 +22,7 @@ def user_has_answered (question, user, answers):
 	for answer in answers:
 		if answer.question.id == question.id:
 			if answer.author.id == user.id:
-				return 1
+				return answer.id
 	return 0
 
 
@@ -38,7 +38,7 @@ def user_has_answered (question, user, answers):
 
 
 
-
+# PSEUDO-CODE
 # # within 'for answer in answers'
 # if answer.author.id == user.id:
 #     user_replied = True

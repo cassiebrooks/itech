@@ -216,6 +216,11 @@ li.answer {
 	cursor: pointer;
 }
 
+.highlight-answer {
+	background-color: red !important;
+	/* TO DO */
+}
+
 
 
 
