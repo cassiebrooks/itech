@@ -31,6 +31,7 @@ def user_has_answered (question, user, answers):
 # 	# returns html of answer form ?
 # 	return "<div class='card'>[form]</div>"
 
+
 # @register.simple_tag
 # def highlight_answer(answer_id):
 # 	# somehow highlights the user's answer within the answer list

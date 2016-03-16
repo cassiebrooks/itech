@@ -7,6 +7,7 @@
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="{% static "js/autogrow.min.js" %}"></script>
+<script src="{% static "js/quokka-ajax.js" %}"></script>
 
 {% if questions %}
  	<ul class="questions">
@@ -19,14 +20,14 @@
  					
  					// make answer submit button appear and disappear on textarea focus
  					$( ".answer textarea" ).focusin(function() {
- 						$(this).parent().find("input[type=submit]").css("display", "inline-block");
+ 						$(this).parent().find("input[type=submit]").css("display", "block");
  					});
  					$( ".answer textarea" ).focusout(function() {
  						$(this).parent().find("input[type=submit]").css("display", "none");
  					});
 
-
- 					if (!{% user_has_answered question user answers %}) {
+ 					var answered = {% user_has_answered question user answers %};
+ 					if (!answered) {
  						$('#user_has_answered-{{ question.id }}').after(
  							"<li class='answer form'>" +
  								"<form action='' method='POST'>" +
@@ -37,21 +38,20 @@
  							"</li>")
  					}
  					else {
- 						var a = {% user_has_answered question user answers %};
- 						console.log(a);
- 						var b = '#a-' + parseInt(a);
- 						console.log(b);
-
- 						// should get <li class="answer" id="a-x"> where x is answer.id
- 						// which is returned from user_has_answered simple_tag
- 						console.log($(b));
-
- 						// test to make sure 
- 						console.log($('#a-6'));
-
- 						// what I want to do with the <li> once I've got hold it it:
- 						$('#a-6').addClass('highlight-answer');
+ 						console.log(answered);
  					}
+
+ 					$(".answer textarea").focusin( function () {
+ 						setTimeout( function() {
+ 							$(this).parent().find("input").css("display", "block");
+ 						}, 500);
+ 					});
+
+ 					$('.answer input[type=submit]').click(function() {
+ 						alert("test");
+ 						$(this).css("display", "none");
+ 					});
+
  				</script>
 
  				{% for answer in answers %}
@@ -78,6 +78,4 @@
 {% else %}
  	<p>There are no questions available.</p>
 {% endif %}
-
-<script src="{% static "js/quokka-ajax.js" %}"></script>
 {% endblock body_block %}
