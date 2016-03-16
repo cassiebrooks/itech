@@ -78,6 +78,8 @@ ul.questions {
 ul.questions:after {
 	content: '';
 	border: 1px solid transparent;
+	position: relative;
+	left: -2px;
 }
 
 .questions > div {
