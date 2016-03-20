@@ -6,14 +6,13 @@ Quokka is a social app for answering thought-provoking questions and reading oth
 Usage
 -----
 
+Assuming Python 2.7 and Django 1.7 installed:
+
 * `git clone git@github.com:cassiebrooks/itech.git`
 * `cd itech/tango_with_django_project/`
-* Run `pip install django-registration-redux`
-* Run `python populate_quokka.py` for a bit of pre-populated data
+* `pip install django-registration-redux`
+* `python manage.py makemigrations`
+* `python manage.py migrate`
+* `python populate_quokka.py` for one prepopulated set of answers, 3 sets, and 3 users
+* `python manage.py createsuperuser` for access to the admin panel at /admin
 * Run using `python manage.py runserver`
-
-TO DO
------
-
-* .gitignore DB (left in for now to we all get each other's questions/answers without running populate script)
-
