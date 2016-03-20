@@ -55,18 +55,9 @@ def populate():
                  " have time to safely make a final dash to save any one item. What would it be? Why?",set=set_3)
     add_question("Of all the people in your family,w hose death would you find most disturbing? Why?",set=set_3)
 
-
-
-    #add_question("What is your name?")
-    #add_question("What is your favourite colour?")
-    #add_question("What is the average airspeed velocity of an unladen swallow?")
     add_user("leifos", "leifos")
     add_user("laura", "laura")
     add_user("david", "david")
-
-   # add_answer("My name is Quokka")
-    #add_answer("My name is Azzopardi")
-
 
 def add_user(name, pw):
     u = User.objects.create_user(name, email=None, password=pw)
