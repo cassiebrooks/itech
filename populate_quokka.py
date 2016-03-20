@@ -28,11 +28,12 @@ def populate():
    # add_answer("My name is Quokka")
     #add_answer("My name is Azzopardi")
 
+
 def add_user(name, pw):
-    email = 'leif@leif.com'
     u = User.objects.create_user(name, email=None, password=pw)
     u.save()
     return u
+
 
 def add_question(text):
     q, created = Question.objects.get_or_create(text=text)
