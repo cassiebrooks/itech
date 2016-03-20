@@ -11,6 +11,7 @@ class Set(models.Model):
 class Question(models.Model):
 	id = models.AutoField(primary_key=True)
 	text = models.CharField(max_length=512)
+	set = models.ForeignKey(Set, on_delete=models.CASCADE)
 	def __unicode__(self):
 		return unicode(self.text)
 
