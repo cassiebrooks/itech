@@ -11,3 +11,9 @@ Usage
 * Run `pip install django-registration-redux`
 * Run `python populate_quokka.py` for a bit of pre-populated data
 * Run using `python manage.py runserver`
+
+TO DO
+-----
+
+* .gitignore DB (left in for now to we all get each other's questions/answers without running populate script)
+
