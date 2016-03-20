@@ -5,6 +5,8 @@ import django
 django.setup()
 
 from quokka.models import Set, Question, Answer, Vote
+from django.contrib.auth.models import User
+# import django.registration.redux
 
 
 def populate():
@@ -19,21 +21,32 @@ def populate():
     add_question("What is your name?")
     add_question("What is your favourite colour?")
     add_question("What is the average airspeed velocity of an unladen swallow?")
+    add_user("leifos", "leifos")
+    add_user("laura", "laura")
+    add_user("david", "david")
 
-    add_answer("My name is Quokka")
-    add_answer("My name is Azzopardi")
+   # add_answer("My name is Quokka")
+    #add_answer("My name is Azzopardi")
+
+def add_user(name, pw):
+    email = 'leif@leif.com'
+    u = User.objects.create_user(name, email=None, password=pw)
+    u.save()
+    return u
 
 def add_question(text):
     q, created = Question.objects.get_or_create(text=text)
     q.save()
     return q
 
+
 def add_set(name):
     s = Set.objects.get_or_create(name=name)[0]
     s.save()
     return s
 
-def add_answer(text): # NOTE: assigns the answer to a random question
+
+def add_answer(text):  # NOTE: assigns the answer to a random question
     a = Answer.objects.get_or_create(text=text, question=Question.objects.order_by('?').first())[0]
     return a
 
