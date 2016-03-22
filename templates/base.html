@@ -20,7 +20,7 @@
     <body>
     	<nav>
             <div class="nav-wrapper">
-                <ul>
+                <ul class="desktop">
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'about' %}">Sets</a></li>
                     <li class="pull-right"><a href="{% url 'index' %}" class="home-logo">QUOKKA</a></li>
@@ -36,6 +36,25 @@
                         </ul>
                     </li>
         	    </ul>
+
+                <ul class="mobile">
+                    <li class="mobile-logo"><a href="{% url 'index' %}" class="home-logo">QUOKKA</a></li>
+                    <li class="hamburger">
+                        <i class="fa fa-bars"></i>
+                        <ul>
+                            <li><a href="{% url 'about' %}">About</a></li>
+                            <li><a href="{% url 'about' %}">Sets</a></li>
+
+                            {% if user.is_authenticated %}
+                             <li><a href="{% url 'add_answer' %}">Add an answer</a></li>
+                              <li><a href="{% url 'auth_logout' %}?next=/quokka/">Logout</a></li>
+                            {% else %}
+                             <li><a href="{% url 'registration_register' %}">Register</a></li>
+                             <li><a href="{% url 'auth_login' %}">Login</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
             </div>
     	</nav>
 

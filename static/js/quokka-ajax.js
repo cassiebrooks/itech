@@ -88,3 +88,15 @@ $('.answer.form button').on('click', function(e) {
             }
      });
 });
+
+
+// mobile menu
+$('.hamburger ul').hide();
+$('.hamburger i').on("click", function() {
+    $('ul.questions').toggleClass('mobile-padding');
+    $('.hamburger ul').slideToggle();
+});
+
+
+
+
