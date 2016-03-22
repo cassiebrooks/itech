@@ -13,7 +13,6 @@ nav ul {
 	list-style-type: none;
 	padding-left: 0;
 	display: flex;
-	justify-content: space-between;
 	margin: 0;
 }
 
@@ -34,6 +33,10 @@ nav {
 	position: fixed;
 	width: 100%;
 	z-index: 1;
+}
+
+.pull-right {
+    margin-left: auto;
 }
 
 nav a {
@@ -210,8 +213,8 @@ li.answer {
 
 .answer input {
 	display: none;
-	background: linear-gradient(to bottom,#61bd4f 0,#5aac44 100%);
-	box-shadow: 0 1px 0 #3f6f21;
+	background: linear-gradient(to bottom,#EF5350 0,#EF5350 100%);
+	box-shadow: 0 1px 0 #C13D3B;
 	color: #fff;
 	outline: none;
 	border: none;
