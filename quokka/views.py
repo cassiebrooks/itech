@@ -76,4 +76,49 @@ def vote_on_answer(request):
             vote.save()
     return HttpResponse(vote.score)
 
+@login_required
+def answer_question(request):
+    if request.method == 'POST':
+        #POST goes here . is_ajax is must to capture ajax requests. Beginner's pit.
+        print "POST received"
+        if request.is_ajax():
+            #Always use get on request.POST. Correct way of querying a QueryDict.
+            qid = request.POST['question_id']
+            text = request.POST['text']
+
+            print "QID and TEXT here"
+            print qid
+            print text
+
+            q = Question.objects.filter(id=int(qid)).first()
+            answer = Answer()
+            answer.text = text
+            answer.question = q
+            answer.author = request.user
+            answer.save()
+
+            #data = (str) qid + "|" + (str) answer.id + "|" + text
+
+            print "Data: " + data
+
+            #Returning same data back to browser.It is not possible with Normal submit
+            return HttpResponse(data)
+
+
+
+
+    # qid = None
+    # text = None
+    # if request.method == 'POST':
+    #     qid = request.GET['question_id']
+    #     text = request.GET['text']
+
+    # if qid:
+    #     q = Question.objects.filter(id=int(qid)).first()
+    #     if q:
+    #         a.text = text
+    #         a.question = q
+    #         a.author = request.user
+    #         a.save()
+    # return HttpResponse(answer)
 

@@ -25,33 +25,33 @@ nav ul {
 .wrapper {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding-top: 80px;	/* means content starts 20px below nav */
+	padding-top: 60px;	/* means content starts 20px below nav */
 }
 
 nav {
-	background-color: #f57c00;
+	background-color: rgba(0,0,0,0.1);
 	box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.17);
 	position: fixed;
 	width: 100%;
 	z-index: 1;
-	height: 60px;
 }
 
 nav a {
-	color: #ffa726;
+	color: rgba(255,255,255,0.6);
 	text-decoration: none;
 	text-transform: uppercase;
-	padding: 20px;
+	padding: 14px;
+	font-size: 14px;
 	display: block;
 	transition: color 0.5s ease;
 }
 
 nav a:visited {
-	color: #ffa726;
+	color: rgba(255,255,255,0.6);
 }
 
 nav a:hover {
-	color: #fff3e0;
+	color: rgba(255,255,255,1);
 }
 
 h1 {
@@ -66,13 +66,13 @@ ul.questions {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	padding: 80px 20px 20px 20px; /* 20px more than header height */
+	padding: 65px 20px 20px 20px; /* 20px more than header height */
 	display: flex;
 	/*margin: 0 -10px;*/
 	-webkit-margin-before: 0;
 	-webkit-margin-after: 0;
 	overflow-y: auto;
-	background-color: #ff9800
+	background-color: #5a5d6e;
 }
 
 ul.questions:after {
@@ -90,18 +90,17 @@ li.question {
 	vertical-align: top;
 	flex: 1;
 	min-width: 300px;
-	/*height: 100%;*/
 	overflow-y: auto;
-	padding: 10px 20px;
+	padding: 10px;
 	margin-right: 20px;
     border-radius: 5px;
     background-color: #eeeeee;
-    border: 1px solid #f2f2f2;
 }
 
 .question h3 {
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 	border-bottom: 1px dashed #E0E0E0;
+	margin: 0 0 10px 0;
 }
 
 ul.answers {
@@ -114,7 +113,8 @@ li.answer {
 	margin-bottom: 10px;
 	padding: 10px;
 	border-radius: 5px;
-	background-color: #FFFCF5;
+	background-color: #ffffff;
+	border: 1px solid #DCDDEA;
 	display: flex;
 }
 
@@ -229,7 +229,10 @@ li.answer {
 	/* TO DO */
 }
 
-
+.score {
+	margin-left: 3px;
+	font-family: sans-serif;
+}
 
 
 
