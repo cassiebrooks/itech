@@ -21,8 +21,9 @@
     	<nav>
             <div class="nav-wrapper">
                 <ul>
-                    <li><a href="{% url 'index' %}">Home</a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'about' %}">Sets</a></li>
+                    <li class="pull-right"><a href="{% url 'index' %}" class="home-logo">QUOKKA</a></li>
                     <li class="pull-right">
                         <ul>
                 	       {% if user.is_authenticated %}

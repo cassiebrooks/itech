@@ -1,3 +1,16 @@
+@font-face {
+    font-family: 'dock11';
+    src: url('../fonts/dock11.eot');
+    src: url('../fonts/dock11.eot?#iefix') format('embedded-opentype'),
+	     url('../fonts/dock11.woff2') format('woff2'),
+	     url('../fonts/dock11.woff') format('woff'),
+	     url('../fonts/dock11.ttf') format('truetype'),
+	     url('../fonts/dock11.svg#dock11') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -17,8 +30,7 @@ nav ul {
 }
 
 .nav-wrapper {
-	max-width: 1200px;
-	margin: 0 auto;
+	padding: 0 10px;
 }
 
 .wrapper {
@@ -37,6 +49,12 @@ nav {
 
 .pull-right {
     margin-left: auto;
+}
+
+.home-logo {
+    font-family: 'dock11';
+    font-size: 22px;
+	margin: -3px 0 -3px 30px;
 }
 
 nav a {
