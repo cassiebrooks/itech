@@ -4,27 +4,27 @@
 
 {% block body_block %}
 <div class="wrapper">
-	<h1>About Quokka</h1>
+	<h1 class="static">About Quokka</h1>
+	<h2 class="static">Meet the team.</h2>
+</div>
+<div class="static-wrapper">
+	<div class="wrapper">
 
-	<img src="{% static "images/quok.png" %}" alt="quok" />
-
-	<p>It's quiz shit yo</p>
-	<p>Answers n that</p>
-
-	<h3>Meet the Creators</h3>
-	<ul>
-		<li>
-			<h4>Cassie Brooks</h4>
-			<p>Joint Honours CS and French (but is English)</p>
-		</li>
-		<li>
-			<h4>Thomas Toussaint</h4>
-			<p>Joint Honours CS and English Language (but is French)</p>
-		</li>
-		<li>
-			<h4>David Creigh</h4>
-			<p>Single Honours Computing Science</p>
-		</li>
-	</ul>
+		<ul class="creators">
+			<li>
+				<img src="{% static "images/cass.jpg" %}" alt="cassie" />
+				<h3>Cassie Brooks</h3>
+				<p>Joint Honours CS and French (but is English)</p>
+			</li><li>
+				<img src="{% static "images/thomas.jpg" %}" alt="thomas" />
+				<h3>Thomas Toussaint</h3>
+				<p>Joint Honours CS and English Language (but is French)</p>
+			</li><li>
+				<img src="{% static "images/david.jpg" %}" alt="david" />
+				<h3>David Creigh</h3>
+				<p>Single Honours Computing Science</p>
+			</li>
+		</ul>
+	</div>
 </div>
 {% endblock body_block %}
