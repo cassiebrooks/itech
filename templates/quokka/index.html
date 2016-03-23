@@ -7,7 +7,6 @@
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="{% static "js/autogrow.min.js" %}"></script>
-<script src="{% static "js/quokka-ajax.js" %}"></script>
 
 {% if questions %}
  	<ul class="questions">
@@ -78,4 +77,5 @@
 {% else %}
  	<p>There are no questions available.</p>
 {% endif %}
+<script src="{% static "js/quokka-ajax.js" %}"></script>
 {% endblock body_block %}
