@@ -38,7 +38,7 @@ function getCookie(name) {
     return cookieValue;
 }
 
-$('.answer.form button').on('click', function(e) {
+$('.answer-test').on('click', function(e) {
     console.log("Clicked submit in form");
 
     // prevetn default submit
@@ -54,43 +54,45 @@ $('.answer.form button').on('click', function(e) {
     console.log(csrftoken);
 
     // now to submit answer
-    $.ajax({
-            url : 'answer_question/', // the endpoint, commonly same url
-            type : "POST", // http method
-            data : {
-                csrfmiddlewaretoken : csrftoken, 
-                question_id : qid,
-                text : text
-            }, // data sent with the post request
-            success : function(data) {
-                //On success show the data posted to server as a message
-                console.log(data);
+    $.get(qid,
+        $.ajax({
+                url : 'answer_question/', // the endpoint, commonly same url
+                type : "POST", // http method
+                data : {
+                    csrfmiddlewaretoken : csrftoken, 
+                    question_id : qid,
+                    text : text
+                }, // data sent with the post request
+                success : function(data) {
+                    //On success show the data posted to server as a message
+                    console.log(data);
 
-                //var x = data.split('|');
+                    var x = data.split('|');
 
-                //console.log(x);
+                    console.log(x);
 
-                // var qid = x[0];
-                // var aid = x[1];
-                // var text = x.slice(2).join("|");
+                    var qid = x[0];
+                    var aid = x[1];
+                    var text = x.slice(2).join("|");
 
-                // var newAnswer = "<li class='answer' id='a-" + aid + "'>" + 
-                //                     "<div class='votes'>" + 
-                //                         "<div class='score'>0</div>" + 
-                //                     "</div>" + 
-                //                     "<div class='text'>" + 
-                //                         "<span>" + text + "</span>" + 
-                //                         "<p class='username'>" + "[user]" + "</p>" + // TODO: username
-                //                     "</div>" + 
-                //                 "</li>";
-                // $('li#q-' + qid + ' ul.answers').prepend(newAnswer);
-            },
-            // handle a non-successful response
-            error : function(xhr, errmsg, err) {
-                // provide a bit more info about the error to the console
-                console.log("Failed AJAX POST");
-            }
-     });
+                    var newAnswer = "<li class='answer' id='a-" + aid + "'>" + 
+                                        "<div class='votes'>" + 
+                                            "<div class='score'>0</div>" + 
+                                        "</div>" + 
+                                        "<div class='text'>" + 
+                                            "<span>" + text + "</span>" + 
+                                            "<p class='username'>" + "[user]" + "</p>" + // TODO: username
+                                        "</div>" + 
+                                    "</li>";
+                    $('li#q-' + qid + ' ul.answers').prepend(newAnswer);
+                },
+                // handle a non-successful response
+                error : function(xhr, errmsg, err) {
+                    // provide a bit more info about the error to the console
+                    console.log("Failed AJAX POST");
+                }
+         })
+    );
 });
 
 

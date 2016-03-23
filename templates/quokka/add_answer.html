@@ -4,22 +4,26 @@
 
 {% block body_block %}
 <div class="wrapper">
-    <h1>Add an answer</h1>
+    <h1 class="static">Add an answer</h1>
+    <h2 class="static">Choose your question wisely....</h2>
+</div>
+<div class="static-wrapper">
+    <div class="wrapper add-answer">
+        <form id="answer_form" method="post" action="/quokka/add_answer/">
 
-    <form id="answer_form" method="post" action="/quokka/add_answer/">
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
 
-        {% csrf_token %}
-        {% for hidden in form.hidden_fields %}
-            {{ hidden }}
-        {% endfor %}
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field }}
+            {% endfor %}
 
-        {% for field in form.visible_fields %}
-            {{ field.errors }}
-            {{ field.help_text }}
-            {{ field }}
-        {% endfor %}
-
-        <input type="submit" name="submit" value="Create Answer" />
-    </form>
+            <input type="submit" name="submit" value="Create Answer" />
+        </form>
+    </div>
 </div>
 {% endblock body_block %}

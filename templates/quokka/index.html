@@ -18,23 +18,23 @@
  					$(".answer textarea").autogrow();
  					
  					// make answer submit button appear and disappear on textarea focus
- 					$( ".answer textarea" ).focusin(function() {
- 						$(this).parent().find("input[type=submit]").css("display", "block");
- 					});
- 					$( ".answer textarea" ).focusout(function() {
- 						$(this).parent().find("input[type=submit]").css("display", "none");
- 					});
+ 					// $( ".answer textarea" ).focusin(function() {
+ 					// 	$(this).parent().find("input[type=submit]").css("display", "block");
+ 					// });
+ 					// $( ".answer textarea" ).focusout(function() {
+ 					// 	$(this).parent().find("input[type=submit]").css("display", "none");
+ 					// });
 
- 					$(".answer textarea").focusin( function () {
- 						setTimeout( function() {
- 							$(this).parent().find("input").css("display", "block");
- 						}, 500);
- 					});
+ 					// $(".answer textarea").focusin( function () {
+ 					// 	setTimeout( function() {
+ 					// 		$(this).parent().find("input").css("display", "block");
+ 					// 	}, 500);
+ 					// });
 
- 					$('.answer input[type=submit]').click(function() {
- 						alert("test");
- 						$(this).css("display", "none");
- 					});
+ 					// $('.answer input[type=submit]').click(function() {
+ 					// 	alert("test");
+ 					// 	$(this).css("display", "none");
+ 					// });
  				</script>
  				{% if user.is_authenticated %}
  					<script type="text/javascript">
@@ -45,7 +45,7 @@
 									"<form action='' method='POST'>" +
 									"{% csrf_token %}" +
 									"<textarea rows='2' placeholder=\"What's your answer?\"></textarea>" +
-									"<input type='submit' />" +
+									"<input type='submit' class='answer-test'/>" +
 									"</form>" +
 								"</li>")
 						}
