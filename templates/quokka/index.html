@@ -25,21 +25,6 @@
  						$(this).parent().find("input[type=submit]").css("display", "none");
  					});
 
- 					var answered = {% user_has_answered question user answers %};
- 					if (!answered) {
- 						$('#user_has_answered-{{ question.id }}').after(
- 							"<li class='answer form'>" +
- 								"<form action='' method='POST'>" +
- 								"{% csrf_token %}" +
- 								"<textarea rows='2' placeholder=\"What's your answer?\"></textarea>" +
- 								"<input type='submit' />" +
- 								"</form>" +
- 							"</li>")
- 					}
- 					else {
- 						console.log(answered);
- 					}
-
  					$(".answer textarea").focusin( function () {
  						setTimeout( function() {
  							$(this).parent().find("input").css("display", "block");
@@ -50,6 +35,25 @@
  						alert("test");
  						$(this).css("display", "none");
  					});
+ 				</script>
+ 				{% if user.is_authenticated %}
+ 					<script type="text/javascript">
+						var answered = {% user_has_answered question user answers %};
+						if (!answered) {
+							$('#user_has_answered-{{ question.id }}').after(
+								"<li class='answer form'>" +
+									"<form action='' method='POST'>" +
+									"{% csrf_token %}" +
+									"<textarea rows='2' placeholder=\"What's your answer?\"></textarea>" +
+									"<input type='submit' />" +
+									"</form>" +
+								"</li>")
+						}
+						else {
+							console.log(answered);
+						}
+ 				</script>
+ 				{% endif %}
 
  				</script>
 
